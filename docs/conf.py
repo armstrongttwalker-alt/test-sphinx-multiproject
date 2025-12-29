@@ -57,7 +57,6 @@ multiproject_projects = {
         "config": {
             "project": "Read the Docs Documentation Portal",
             "html_title": "Read the Docs Documentation Portal",
-            "master_doc": "portal/index",
         },
     },
 }
