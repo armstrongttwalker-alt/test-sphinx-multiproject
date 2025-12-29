@@ -1,0 +1,83 @@
+<!-- 文档网站间的导航栏 -->
+<div class="doc-navbar">
+  <div class="doc-navbar-inner">
+    <span class="doc-navbar-label">文档选择：</span>
+    
+    <a href="{{ portal_url }}" class="doc-navbar-link {% if current_docset == 'portal' %}active{% endif %}">
+      🏠 门户网站
+    </a>
+    
+    <span class="doc-navbar-separator">|</span>
+    
+    <a href="{{ user_url }}" class="doc-navbar-link {% if current_docset == 'user' %}active{% endif %}">
+      👤 用户文档
+    </a>
+    
+    <span class="doc-navbar-separator">|</span>
+    
+    <a href="{{ dev_url }}" class="doc-navbar-link {% if current_docset == 'dev' %}active{% endif %}">
+      👨‍💻 开发者文档
+    </a>
+  </div>
+</div>
+
+<style>
+.doc-navbar {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 10px 0;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.doc-navbar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.doc-navbar-label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.doc-navbar-link {
+  color: white;
+  text-decoration: none;
+  padding: 4px 12px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.doc-navbar-link:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.doc-navbar-link.active {
+  background: rgba(255, 255, 255, 0.3);
+  font-weight: bold;
+}
+
+.doc-navbar-separator {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 768px) {
+  .doc-navbar-inner {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .doc-navbar-label {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+}
+</style>
