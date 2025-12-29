@@ -52,6 +52,14 @@ multiproject_projects = {
             "html_title": "Read the Docs developer documentation",
         },
     },
+    "portal": {
+        "use_config_file": False,
+        "config": {
+            "project": "Read the Docs Documentation Portal",
+            "html_title": "Read the Docs Documentation Portal",
+            "master_doc": "portal/index",
+        },
+    },
 }
 
 docset = get_project(multiproject_projects)
