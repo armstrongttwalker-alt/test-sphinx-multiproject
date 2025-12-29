@@ -5,38 +5,29 @@ build:
   tools:
     python: "3.12"
 
-# 1. 首先定义全局的默认Sphinx构建
-sphinx:
-  configuration: docs/conf.py
-  builder: html
-
-# 2. 全局安装依赖
-python:
-  install:
-    - requirements: requirements.txt
-
-# 3. 然后定义你的多任务作业（覆盖默认行为）
+# 定义所有构建作业为一个列表
 jobs:
-  build_portal:
-    name: "Build Documentation Portal"
-    # 注意：这里完全覆盖了上方的全局sphinx配置
+  - name: "Build Documentation Portal"
     sphinx:
       configuration: docs-portal/conf.py
       builder: html
       fail_on_warning: false
 
-  build_product_a:
-    name: "Build Product A Documentation"
+  - name: "Build Product A Documentation"
     environment:
       multiproject: product_a
     sphinx:
       configuration: docs/conf.py
       builder: html
 
-  build_product_b:
-    name: "Build Product B Documentation"
+  - name: "Build Product B Documentation"
     environment:
       multiproject: product_b
     sphinx:
       configuration: docs/conf.py
       builder: html
+
+# 所有作业共享的 Python 依赖安装
+python:
+  install:
+    - requirements: requirements.txt
