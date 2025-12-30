@@ -54,7 +54,7 @@ multiproject_projects = {
     },
     "portal": {
         "use_config_file": False,
-        "confoverrides": "portal/confoverrides.py",
+        # "confoverrides": "portal/confoverrides.py",
         "config": {
             "project": "Read the Docs Documentation Portal",
             "html_title": "Read the Docs Documentation Portal",
