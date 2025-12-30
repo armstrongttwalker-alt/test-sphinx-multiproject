@@ -5,6 +5,7 @@ sphinx
 matplotlib  # opengraph social cards
 
 sphinx_rtd_theme
+sphinx_book_theme
 sphinx-tabs
 sphinx-intl
 sphinx-design
