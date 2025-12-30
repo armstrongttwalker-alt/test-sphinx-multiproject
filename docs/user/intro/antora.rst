@@ -50,3 +50,51 @@ Further Reading
 * `Antora documentation`_
 
 .. _Antora documentation: https://docs.antora.org/antora/latest/
+
+
+
+
+```bash
+-------------Nvidia A800平台上容器创建命令参考---------------------------------------
+sudo docker run -itd \
+                --name flagscale-flagcx-test \
+                --privileged \
+                --net=host \
+                --pid=host \
+                --cap-add=ALL \
+                --shm-size 128G \
+                --ulimit memlock=-1 \
+                --gpus all \
+                -v /dev/:/dev/ \
+                -v /usr/src/:/usr/src/ \
+                -v /lib/modules/:/lib/modules/ \
+                -v /nfs/changtao/:/workspace/ \
+                flagscale_xlc:cuda12.4.1-cudnn9.5.0-python3.12-torch2.6.0-time2504161115-ssh \
+                /bin/bash
+                
+-------------Kunlunxin P800平台上容器创建命令参考--------------------------------------- 
+sudo docker run -itd \
+        --name flagcx-test-wuh \
+        --privileged \
+        --net=host \
+        --pid=host \
+        --shm-size 128G \
+        --ulimit memlock=-1 \
+        --group-add video \
+        -v /public-nvme/changtao/:/root/workspace \
+        -v /usr/local/xpu/:/usr/local/xpu \
+        flagcx_kunlunxin_base:v1.1 \
+        /bin/bash    
+-------------cambricon-mlu590平台上容器创建命令参考---------------------------------------
+sudo docker run -itd \
+        --name flagcx-test-wuh \
+        --privileged \
+        --net=host \
+        --pid=host \
+        --shm-size 128G \
+        --ulimit memlock=-1 \
+        --group-add video \
+        -v /share/project/changtao:/workspace \
+        flagcx_mlu:0707 \
+        /bin/bash                 
+```
