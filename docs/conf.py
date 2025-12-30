@@ -133,6 +133,7 @@ intersphinx_disabled_reftypes = ["*"]
 
 myst_enable_extensions = [
     "deflist",
+    "colon_fence",
 ]
 htmlhelp_basename = "ReadTheDocsdoc"
 latex_documents = [
