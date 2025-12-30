@@ -184,6 +184,10 @@ html_context = {
     "plausible_domain": f"{os.environ.get('READTHEDOCS_PROJECT')}.readthedocs.io",
 }
 
+html_sidebars = {
+    '**': []  # 表示所有页面都不显示任何侧边栏组件
+}
+
 # See dev/style_guide.rst for documentation
 rst_epilog = """
 .. |org_brand| replace:: Read the Docs Community
